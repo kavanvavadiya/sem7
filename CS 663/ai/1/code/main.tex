@@ -1,0 +1,27 @@
+\title{Assignment 1: CS 663, Fall 2023}
+\author{Darshan Makwana, Vignesh Nayak, Harsh Kavediya}
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage[margin=0.5in]{geometry}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item [Q1.]
+\begin{enumerate}
+\item [(a)] As the scanner scanned the same document with no streaching or bending of the paper, the intensity values captured by the scanner at both the times of scanning is of the same resolution along both the axis and no scaling is required. Hence using a \textbf{Rigid Motion model} will suffice
+
+\item [(b)] Here the scanners used during the times of scanning are of unequal resolution with resolutions along X and Y being same. Also the semantic information being scanned during both times was of the same size as no bending or streaching was done on the document. We would first have to do an equal scaling to make the physical correspondence per pixels in both the images equal and then a rigid model to align them. Thus doing \textbf{Rigid with equal scaling along X and Y direction} will suffice
+
+\item [(c)] Here we want to align the front and back sides of a document. But when the back side is viewed from the front side it is mirrored. The scanner scans the back side in an upright position thus when aligning we will have to apply a reflection tranformation to the back side first. As no affine motion model can do a reflection tranformation, We will have to do a \textbf{Non Rigid Motion} model
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

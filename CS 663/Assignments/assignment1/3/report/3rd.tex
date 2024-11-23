@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tocloft} % For customizing the table of contents
+
+\title{Question 3}
+\author{Anshika Raman \\ Roll No: 210050014
+    \and Kushal Aggarwal \\ Roll No: 210100087
+    \and Kavan Vavadiya \\ Roll No: 210100166}
+\date{August 2024}
+
+\begin{document}
+
+\maketitle
+
+% Customize the dots in the table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\noindent Choose two reference points where the pixel coordinates can be identified clearly in both MATLAB (u, v) and the corresponding graph coordinates ($x_{graph}$, $y_{graph}$).  \\
+
+\noindent \textbf{Scaling Factors}
+
+\noindent The \textbf{scaling factor} for the x-axis and y-axis can be calculated as follows:
+
+\begin{equation}
+S_x = \frac{x2_{\text{graph}} - x1_{\text{graph}}}{u2 - u1}
+\end{equation}
+
+\begin{equation}
+S_y = \frac{y2_{\text{graph}} - y1_{\text{graph}}}{v2 - v1}
+\end{equation}
+
+\noindent \textbf{Translation Offsets}
+
+\noindent The \textbf{translation offsets} account for the difference in origins between the two coordinate systems. Translation offsets for x and y can be calculated as:
+
+\begin{equation}
+T_x = x1_{\text{graph}} - S_x \times u1
+\end{equation}
+
+\begin{equation}
+T_y = y1_{\text{graph}} - S_y \times v1
+\end{equation}
+
+\noindent \textbf{Transformation Equations}
+
+\noindent This equation applies the scaling factor and the translation offset to convert a MATLAB y-coordinate v to the graph’s coordinate system y, and MATLAB x-coordinate u to the graph's coordinate system x. The transformation from $(u, v)$ to the graph’s coordinates $(x, y)$
+
+\begin{equation}
+x = S_x \times u + T_x
+\end{equation}
+
+\begin{equation}
+y = S_y \times v + T_y
+\end{equation}
+
+\section*{Example}
+
+Suppose the reference points in MATLAB and graph coordinate systems are:
+
+\begin{itemize}
+    \item $P1_{\text{matlab}} = (u1, v1) = (607, 198)$
+    \item $P1_{\text{graph}} = (x1, y1) = (0, 550)$
+    \item $P2_{\text{matlab}} = (u2, v2) = (475, 604)$
+    \item $P2_{\text{graph}} = (x2, y2) = (-10, 580)$
+\end{itemize}
+
+\begin{equation}
+S_x = \frac{-10 - 0}{475 - 607} = 0.0757575757576
+\end{equation}
+
+\begin{equation}
+S_y = \frac{580-550}{604 - 198} = 0.0738916256158
+\end{equation}
+
+\begin{equation}
+T_x = 0 - S_x \times 607 = -45.9848484849
+\end{equation}
+
+\begin{equation}
+T_y = 550 - S_y \times 198 = 535.369458128
+\end{equation}
+
+\begin{equation}
+x = S_x \times u + T_x = 0.0757575757576 \times u -45.9848484849
+\end{equation}
+
+\begin{equation}
+y = S_y \times v + T_y = 0.0738916256158 \times v + 535.369458128
+\end{equation}
+
+\vspace{5pt}
+\begin{center}
+\noindent test points: $(u, v) = (544, 1303)$ \\
+output: $(x,y) = (-4.77272727277, 631.650246305)$
+\end{center}
+\end{document}

@@ -1,0 +1,29 @@
+\title{Assignment 1: CS 663, Fall 2023}
+\author{Darshan Makwana, Vignesh Nayak, Harsh Kavediya}
+
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage[margin=0.5in]{geometry}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item[Q3.] Let $P_{I+J}$ denote the probability mass function for image $I+J$. By definition $P_{I+J}(i)$ denotes the probability that any randomly choosen pixel in the image will have an intensity of $i$
+\begin{equation}
+    \begin{aligned}
+        P_{I+J}(i) &= P_{I+J}(I+J = i) \\
+        &= P_{I+J}(I = i - J) \\
+        &= P_{I}(I = i - J | J)P_{J}(0 \le j \le i) \\
+        &= \sum\limits_{j=0}^{i} P_{I}(i-j)P_{J}(j)
+    \end{aligned}
+\end{equation}
+
+This resembles the convolution operation we used in class for local spatial filters
+
+\end{enumerate}
+
+\end{document}

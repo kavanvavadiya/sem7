@@ -1,0 +1,54 @@
+\title{Assignment 1: CS 663, Fall 2023}
+\author{Darshan Makwana, Vignesh Nayak, Harsh Kavediya}
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage[margin=0.5in]{geometry}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item[Q2. ] The idea is to use an affine tranformation matrix $A$ which can convert the coordinates from matlab to the coordinate system of the graph. To learn the matrix $A$ we will have to sample $n$ points from the graph for which the coordinates $(x_{2}, y_{2})$ can be manually seen, then use the inpixelinfo in matlab to get the coordinate values $(x_{1}, y_{1})$ in the coordiante system of matlab. The linear system of equations for their transformation can be represented by
+$$
+\begin{bmatrix}
+    x_{21} & x_{22} &.. & x_{2n} \\
+    y_{21} & y_{22} &.. & y_{2n} \\
+    1 & 1 &.. & 1
+\end{bmatrix} = 
+\begin{bmatrix}
+    A_{11} & A_{12} & t_{x} \\
+    A_{21} & A_{22} & t_{y} \\
+    0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x_{11} & x_{12} &.. & x_{1n} \\
+    y_{11} & y_{12} &.. & y_{1n} \\
+    1 & 1 &.. & 1
+\end{bmatrix}
+$$
+$$X_{2} = AX_{1}$$
+To solve for A we will multiply by $X_{1}^{T}$ after which we get $X_{2}X_{1}^{T} = AX_{1}X_{1}^{T}$. If we take the utmost care that the $n$ points sampled are not collinear then $X_{1}$ is invertible and $X_{1}X_{1}^{T}$ also becomes invertible. Now $A$ can be obtained by multiplying by $(X_{1}X_{1}^{T})^{-1}$
+$$A = (X_{2}X_{1}^{T})(X_{1}X_{1}^{T})^{-1}$$
+
+Now to convert any point $(x_{m}, y_{m})$ from the coordinate system of matlab to that of the graph $(x_{g}, y_{g})$ we can simply apply the affine transformation matrix $A$
+$$
+\begin{bmatrix}
+    x_{g} \\
+    y_{g} \\
+    1
+\end{bmatrix} = 
+A
+\begin{bmatrix}
+    x_{g} \\
+    y_{g} \\
+    1
+\end{bmatrix}
+$$
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tocloft} % For customizing the table of contents
+
+\title{Question 1}
+\author{Anshika Raman \\ Roll No: 210050014
+    \and Kushal Aggarwal \\ Roll No: 210100087
+    \and Kavan Vavadiya \\ Roll No: 210100166}
+
+\date{August 2024}
+
+\begin{document}
+
+\maketitle
+
+% Customize the dots in the table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\begin{enumerate}
+    \item \textbf{Pixel size: I\_1: 0.5 × 0.5, I\_2: 0.25 × 0.25}
+    Here, the pixel size in Image 2 is exactly half that of Image 1 in both dimensions. This indicates a \textbf{uniform scaling} in both the x and y directions by a factor of 2. Since the scaling is uniform and there’s no mention of rotation or shear, the appropriate motion model is scaling and \textbf{translation} (a specific case of similarity transformation).
+
+The transformation matrix for aligning the images can be represented as:
+    \[
+    \mathbf{T} = \begin{bmatrix}
+    2 & 0 & t_x \\
+    0 & 2 & t_y \\
+    0 & 0 & 1
+    \end{bmatrix}
+    \]
+    
+    \item \textbf{Pixel size: I\_1: 0.5 × 0.5, I\_2: 0.25 × 0.5}
+    In this scenario, the pixel size in Image 2 is half that of Image 1 in the x-dimension but identical in the y-dimension. The images are likely captured with the same orientation, so rotation is not needed. The main difference is in pixel size, which can be addressed by scaling. This requires \textbf{non-uniform scaling} along with \textbf{translation}.
+
+The appropriate transformation matrix is:
+    \[
+    \mathbf{T} = \begin{bmatrix}
+    2 & 0 & t_x \\
+    0 & 1 & t_y \\
+    0 & 0 & 1
+    \end{bmatrix}
+    \]
+
+    Note: If the control points in one image are already perfectly aligned with the corresponding points in the other image after scaling, then $t_x$ and $t_y$ would be zero. However, if there's any offset (e.g., due to the images being captured from slightly different positions), these \textbf{translations} are necessary to align the images properly.
+
+  
+\end{enumerate}
+
+
+\end{document}

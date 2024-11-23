@@ -1,0 +1,132 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tocloft} % For customizing the table of contents
+
+\title{Question 4}
+\author{Anshika Raman \\ Roll No: 210050014
+    \and Kushal Aggarwal \\ Roll No: 210100087
+    \and Kavan Vavadiya \\ Roll No: 210100166}
+\date{August 2024}
+\begin{document}
+\maketitle
+\section*{Motion Estimation Using Control Points}
+
+Suppose the motion model between two images is given by:
+\[
+x_2 = a x_1^2 + b y_1^2 + c x_1 y_1 + d x_1 + e y_1 + f
+\]
+\[
+y_2 = A x_1^2 + B y_1^2 + C x_1 y_1 + D x_1 + E y_1 + F
+\]
+
+where \( (x_1, y_1) \) are coordinates in image 1 and \( (x_2, y_2) \) are the corresponding coordinates in image 2. The constants \(a, b, c, d, e, f, A, B, C, D, E, F\) are unknown. 
+
+\
+
+Obtain a set of corresponding control points \((x_1^i, y_1^i)\) in image 1 and \((x_2^i, y_2^i)\) in image 2, where \(i = 1, 2, \ldots, N\). 
+
+\
+
+For each control point pair \( (x_1^i, y_1^i) \) and \( (x_2^i, y_2^i) \), the motion model gives us the following equations:
+
+\[
+x_2^i = a (x_1^i)^2 + b (y_1^i)^2 + c x_1^i y_1^i + d x_1^i + e y_1^i + f
+\]
+\[
+y_2^i = A (x_1^i)^2 + B (y_1^i)^2 + C x_1^i y_1^i + D x_1^i + E y_1^i + F
+\]
+
+\
+
+Define the vector of unknowns:
+
+\[
+\mathbf{p} = \begin{bmatrix}
+a \\
+b \\
+c \\
+d \\
+e \\
+f \\
+A \\
+B \\
+C \\
+D \\
+E \\
+F
+\end{bmatrix}
+\]
+
+For each control point \(i\), construct the vector:
+
+\[
+\mathbf{x}^i = \begin{bmatrix}
+(x_1^i)^2 \\
+(y_1^i)^2 \\
+x_1^i y_1^i \\
+x_1^i \\
+y_1^i \\
+1 \\
+(x_1^i)^2 \\
+(y_1^i)^2 \\
+x_1^i y_1^i \\
+x_1^i \\
+y_1^i \\
+1
+\end{bmatrix}
+\]
+
+Then, for the control point pair \((x_1^i, y_1^i)\) and \((x_2^i, y_2^i)\), write:
+
+\[
+\mathbf{A} \mathbf{p} = \begin{bmatrix}
+x_2^i \\
+y_2^i
+\end{bmatrix}
+\]
+
+Where \(\mathbf{A}\) is an \(N \times 12\) matrix:
+\[
+\setcounter{MaxMatrixCols}{12}
+\mathbf{A} = \begin{bmatrix}
+(x_1^1)^2 & (y_1^1)^2 & x_1^1 y_1^1 & x_1^1 & y_1^1 & 1 & (x_1^1)^2 & (y_1^1)^2 & x_1^1 y_1^1 & x_1^1 & y_1^1 & 1 \\
+(x_1^2)^2 & (y_1^2)^2 & x_1^2 y_1^2 & x_1^2 & y_1^2 & 1 & (x_1^2)^2 & (y_1^2)^2 & x_1^2 y_1^2 & x_1^2 & y_1^2 & 1 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+(x_1^N)^2 & (y_1^N)^2 & x_1^N y_1^N & x_1^N & y_1^N & 1 & (x_1^N)^2 & (y_1^N)^2 & x_1^N y_1^N & x_1^N & y_1^N & 1
+\end{bmatrix}
+\]
+
+And \(\mathbf{b}\) is the vector:
+
+\[
+\mathbf{b} = \begin{bmatrix}
+x_2^1 \\
+y_2^1 \\
+x_2^2 \\
+y_2^2 \\
+\vdots \\
+x_2^N \\
+y_2^N
+\end{bmatrix}
+\]
+
+To find \(\mathbf{p}\), solve the system:
+
+\[
+\mathbf{A} \mathbf{p} = \mathbf{b}
+\]
+
+If \(N > 12\), use the least squares solution:
+
+\[
+\mathbf{p} = (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{A}^T \mathbf{b}
+\]
+
+If \(N = 12\), solve the system directly using methods like Gaussian elimination or matrix factorization.
+
+\end{document}

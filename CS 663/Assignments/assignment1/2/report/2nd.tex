@@ -1,0 +1,30 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tocloft} % For customizing the table of contents
+
+\title{Question 2}
+\author{Anshika Raman \\ Roll No: 210050014
+    \and Kushal Aggarwal \\ Roll No: 210100087
+    \and Kavan Vavadiya \\ Roll No: 210100166}
+
+\date{August 2024}
+
+\begin{document}
+
+\maketitle
+
+% Customize the dots in the table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+We can think of $u_{ij}$ to be a vector connecting points from image $i$ to image $j$ which are in physical correspondence. Without of loss of generality, we can assume this point to be the center of the image. Since $I_1, I_2 \textit{ and } I_3$ are related by only translation motion, we can form a triangle connecting the centers of these images. From triangle rule of vectors and closed form for the triangle, we can say that the following relation holds true for vectors $\mathbf{u}_{12}, \mathbf{u}_{23}\textit{ and }\mathbf{u}_{31}$:
+\begin{equation}
+    \mathbf{u}_{12}+\mathbf{u}_{23}+\mathbf{u}_{31}=\mathbf{0}
+\end{equation}
+When we transform images in real life, there are a lot many changes that can take place. A translation can result in non-similar lighting conditions and scanning properties. It may distort the image depending on the camera at use. Apart from this, even if we do not move the image, repetitive measurements of the same image can give slightly different reasons due to noise in the sensor. Combining all of this, we do not get a practical scenario in which images are solely translated with no other difference seen in the image. Even if we ignore the above effect, the estimation of a particular set of points in physical correspondence in the images can itself hold some error. This can result in violation of the above equation with the RHS not being exactly $\mathbf{0}$ but some vector $\mathbf{\epsilon}$ having a small magnitude.
+
+\end{document}
